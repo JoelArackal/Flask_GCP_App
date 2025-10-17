@@ -144,7 +144,7 @@
     <!-- Top Buttons Row -->
     <div class="button-row mb-2">
       <div class="d-flex flex-nowrap gap-2">
-        <button type="button" class="btn btn-warning btn-sm" onclick="clearText()">Clear</button>
+        <button type="button" class="btn btn-warning btn-sm" id="clrBtn" onclick="clearText()">Clear</button>
         <button type="button" id="resetBtn" class="btn btn-secondary btn-sm">Reset</button>
       </div>
       <div>
@@ -191,6 +191,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
+    const clrBtn = document.getElementById('clrBtn');
+
+    clrBtn.addEventListener('click', function() {
+    // Call your custom function here
+    clearText();
+    });
+
     function clearText() {
       document.getElementById('mainText').value = '';
     }
@@ -210,7 +217,7 @@
       loader.style.display = 'flex'; // show the loading spinner
     });
 
-    var original_text = "{{ original_text }}";
+    var original_text = `{{ original_text }}`;
     const resetBtn = document.getElementById('resetBtn');
     if (original_text == null || original_text == undefined || original_text == "") {
     resetBtn.style.display = 'None'; // or 'block' depending on layout

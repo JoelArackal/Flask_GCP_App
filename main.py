@@ -18,7 +18,7 @@ def process_input(input_text: str, tone: str) -> str:
     prompt = prompt + f"Here is the input text: <input_text>{input_text}</input_text>"
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash", contents=prompt
+        model="gemini-2.5-flash-lite", contents=prompt
     )
 
     return response.text
